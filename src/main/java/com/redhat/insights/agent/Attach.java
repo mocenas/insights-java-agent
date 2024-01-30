@@ -27,6 +27,8 @@ public class Attach {
       vm.loadAgent(agentJar, options);
       vm.detach();
     } catch (AgentLoadException | IOException e) {
+      //show exceptions
+      throw new RuntimeException(e);
       // Probable Java version mismatch, ignore
     } catch (AttachNotSupportedException | AgentInitializationException e) {
       throw new RuntimeException(e);
